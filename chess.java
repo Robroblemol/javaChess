@@ -5,16 +5,15 @@ public class chess {
 
    int c=0,f=0;
    String ficha = "";
-   String [][] matrizTablero = new String [8][8];
    Scanner Input = new Scanner(System.in);
    tablero Tablero = new tablero();
    peon [] Peones = new peon[8];
 
-   matrizTablero=Tablero.start(matrizTablero);
-   Tablero.show(matrizTablero);
+   Tablero.start();
+   Tablero.show();
 
    for(int i=0;i<Peones.length;i++){
-     Peones [i] = new peon (1,i,matrizTablero[1][i],"P",true);
+     Peones [i] = new peon (1,i,Tablero.getName(1,i),"P",true);
    }
 
 
@@ -36,14 +35,14 @@ public class chess {
    //ficha=Input.next();
 
    //P1.mov_ficha(f,c);
-   Tablero.mov_peon(f,c,Peones[0],matrizTablero);
-   Tablero.show(matrizTablero);
+   Tablero.mov_peon(f,c,Peones[0]);
+   Tablero.show();
   System.out.println("pocicion "+Peones[0].getName()+" x "+Peones[0].getPosX()+" y "+Peones[0].getPosY());
   System.out.println("digite pocision en y");
   f=Input.nextInt();
   System.out.println("digite pocision en x");
   c=Input.nextInt();
-   Tablero.mov_peon(f,c,Peones[0],matrizTablero);
-  Tablero.show(matrizTablero);
+   Tablero.mov_peon(f,c,Peones[0]);
+  Tablero.show();
   }
 }
