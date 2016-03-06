@@ -5,12 +5,18 @@ public class chess {
 
    int c=0,f=0;
    String ficha = "";
+   String [][] matrizTablero = new String [8][8];
    Scanner Input = new Scanner(System.in);
    tablero Tablero = new tablero();
-   //peon P1 = new peon(1,0,"P1");
+   peon [] Peones = new peon[8];
 
-   Tablero.start();
-   Tablero.show();
+   matrizTablero=Tablero.start(matrizTablero);
+   Tablero.show(matrizTablero);
+
+   for(int i=0;i<Peones.length;i++){
+     Peones [i] = new peon (1,i,matrizTablero[1][i],"P",true);
+   }
+
 
 /*   System.out.println("digite pocision en x");
    f=Input.nextInt();
@@ -22,15 +28,22 @@ public class chess {
    else
    System.out.println("direccion ocupada");
 */
-   System.out.println("digite pocision en x");
-   f=Input.nextInt();
    System.out.println("digite pocision en y");
+   f=Input.nextInt();
+   System.out.println("digite pocision en x");
    c=Input.nextInt();
-   System.out.println("nombre de ficha");
-   ficha=Input.next();
+   System.out.println("nombre de ficha "+Peones[0].getName());
+   //ficha=Input.next();
 
    //P1.mov_ficha(f,c);
-   Tablero.set_pos(f,c,ficha);
-   Tablero.show();
+   Tablero.mov_peon(f,c,Peones[0],matrizTablero);
+   Tablero.show(matrizTablero);
+  System.out.println("pocicion "+Peones[0].getName()+" x "+Peones[0].getPosX()+" y "+Peones[0].getPosY());
+  System.out.println("digite pocision en y");
+  f=Input.nextInt();
+  System.out.println("digite pocision en x");
+  c=Input.nextInt();
+   Tablero.mov_peon(f,c,Peones[0],matrizTablero);
+  Tablero.show(matrizTablero);
   }
 }
