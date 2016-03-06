@@ -16,6 +16,8 @@ public class tablero {
     }
     return matrizTablero;
   }
+
+
   public void show (){
     String data = " ";
       for(int f = 0;f<matrizTablero.length;f++){
@@ -32,6 +34,8 @@ public class tablero {
     else
     return false;
   }
+
+
   public void mov_peon (int x, int y,peon Peon){
     if((x-Peon.getPosX())==1||Peon.getprimerM()==true){
       matrizTablero[Peon.getPosX()][Peon.getPosY()]="00";//borro la ficha de la pocicion actual
@@ -40,7 +44,16 @@ public class tablero {
     }
     else System.out.println("Movimiento ilegal");
   }
+
+  public void mov_torre(int x,int y,torre Torre){
+    matrizTablero[Torre.getPosX()][Torre.getPosY()]="00";//borro la ficha de la pocicion actual
+    matrizTablero[x][y]=Torre.getName();//ajusto el nueva pocision
+    Torre.setPos(x,y);
+  }
+
+
   public String getName(int x,int y){
     return matrizTablero[x][y];
   }
+
 }
