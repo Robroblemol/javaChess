@@ -8,6 +8,7 @@ public class chess {
    Scanner Input = new Scanner(System.in);
    tablero Tablero = new tablero();
    peon [] Peones = new peon[8];
+   menu Menu = new menu();
 
    Tablero.start();
    Tablero.show();
@@ -15,7 +16,8 @@ public class chess {
    for(int i=0;i<Peones.length;i++){
      Peones [i] = new peon (1,i,Tablero.getName(1,i),"P",true);
    }
-
+   Menu.mov_Ficha(Tablero,Peones);
+   Tablero.show();
 
 /*   System.out.println("digite pocision en x");
    f=Input.nextInt();
@@ -27,7 +29,7 @@ public class chess {
    else
    System.out.println("direccion ocupada");
 */
-   System.out.println("digite pocision en y");
+   /*System.out.println("digite pocision en y");
    f=Input.nextInt();
    System.out.println("digite pocision en x");
    c=Input.nextInt();
@@ -43,6 +45,7 @@ public class chess {
   System.out.println("digite pocision en x");
   c=Input.nextInt();
    Tablero.mov_peon(f,c,Peones[0]);
-  Tablero.show();
+  Tablero.show();*/
+
   }
 }
