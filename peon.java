@@ -1,27 +1,41 @@
 public class peon{
+boolean primerM;
 int pos_intx =0;
 int pos_inty =0;
 String name = "";
-
-
-  public peon(int pix,int piy,String n){
-  String name = n;
-  int pos_inty = piy;
-  int pos_intx = pix;
+String type = "";
+  public peon(int pix,int piy,String n,String type,boolean primerM){
+  this.name = n;
+  this.pos_inty = piy;
+  this.pos_intx = pix;
+  this.type = type;
+  this.primerM = primerM;
+  /*System.out.println("Pocision inicial en x "+pos_intx);
+  System.out.println("Pocision inicial en y "+pos_inty);
+  System.out.println("nombre "+name);
+  System.out.println("type "+type);*/
   }
 
-  public void set_posPeon(int x,int y){
+  public void setPos(int x,int y){
     pos_intx=x;
     pos_inty=y;
+    if(primerM==true)
+     primerM=false;
   }
-  public void mov_ficha(int x,int y){
-    if(x <= 7 && y <= 7){
-    Tablero.set_pos(pos_intx,pos_inty,"00");
-    Tablero.set_pos(x,y,name);
-    set_posPeon(x,y);
-    }
-    else
-    System.out.println("ingrese valor valido");
+  public int getPosX(){
+    return pos_intx;
+  }
+  public int getPosY(){
+    return pos_inty;
+  }
+  public String getName(){
+    return name;
+  }
+  public String getType(){
+    return type;
+  }
+  public boolean getprimerM(){
+    return primerM;
   }
 
 }

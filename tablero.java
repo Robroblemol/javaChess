@@ -1,9 +1,8 @@
 public class tablero {
-  String [][] matrizTablero = new String [8][8];
   String [] realeza = {"T1","C1","A1","RI","RA","A2","C2","T2"};
   String [] peon    = {"P1","P2","P3","P4","P5","P6","P7","P8"};
 
-  public void start (){
+  public String [][] start (String [][] matrizTablero){
     System.out.println ("Inicilizando...");
     for(int i = 0;i<matrizTablero.length;i++){
       matrizTablero[0][i]=realeza[i];
@@ -14,8 +13,9 @@ public class tablero {
           matrizTablero[f][c]="00";
         }
     }
+    return matrizTablero;
   }
-  public void show (){
+  public void show (String [][] matrizTablero){
     String data = " ";
       for(int f = 0;f<matrizTablero.length;f++){
           for(int c = 0;c<matrizTablero.length;c++){
@@ -25,13 +25,18 @@ public class tablero {
           System.out.println("");
       }
   }
-  public boolean busy (int f, int c){
+  public boolean busy (String [][] matrizTablero,int f, int c){
     if(matrizTablero[f][c].equals("00"))
     return true;
     else
     return false;
   }
-  public void set_pos (int x, int y,String ficha){
-    matrizTablero[x][y] = ficha;
+  public void mov_peon (int x, int y,peon Peon,String [][] matrizTablero){
+    if((x-Peon.getPosX())==1||Peon.getprimerM()==true){
+      matrizTablero[Peon.getPosX()][Peon.getPosY()]="00";//borro la ficha de la pocicion actual
+      matrizTablero[x][y] = Peon.getName();//ajusto el nueva pocision
+      Peon.setPos(x,y);//metemos la nueva pocision en la ficha
+    }
+    else System.out.println("Movimiento ilegal");
   }
 }
