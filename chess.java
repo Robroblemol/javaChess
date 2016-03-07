@@ -5,7 +5,7 @@ public class chess {
 
    boolean flag_again=true;
    int c=0,f=0;
-   String decide = "";
+   String decide = "", a = "";
    Scanner Input = new Scanner(System.in);
    tablero Tablero = new tablero();
    Tablero.start();
@@ -26,16 +26,22 @@ public class chess {
 while(flag_again==true){
   // Menu.mov_Ficha(Tablero,Peones);
   //Tablero.show();
+  System.out.println("Digite P para mover Peones o T para mover torres");
+  a=Input.next();
+  if(a.equals("T")||a.equals("t")){
+    Menu.mov_Ficha(Tablero,Torres);
+    Tablero.show();
+  }else if (a.equals("P")||a.equals("p")){
+    Menu.mov_Ficha(Tablero,Peones);
+    Tablero.show();
+  }
 
-  Menu.mov_Ficha(Tablero,Torres);
-  Tablero.show();
-
-    System.out.println("deseacontinuar jugando?");
+    System.out.println("desea continuar jugando? (s) continuar");
     decide=Input.next();
     if(decide.equals("N")||decide.equals("n"))
     flag_again=false;
     else if(decide.equals("s")||decide.equals("S"))
-    System.out.println("0K!");
+    System.out.println("0K");
     else     System.out.println("Que Coño??");
 }
 
